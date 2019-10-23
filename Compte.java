@@ -13,9 +13,10 @@ public class Compte
 	private String numero = "0"; 										// Numéro d'un compte bancaire
 	private double solde; 												// Solde du compte, ne peut pas être négatif
 	private LocalDate dateCreation; 									// Date de la création du compte
+	Personne proprietaire;
 	
 	// Constructeur
-	public Compte(double sol)
+	public Compte(double sol, Personne proprio)
 	{
 		// DateTimeFormatter permet d'obtenir en format String la date d'aujourd'hui(du système qui lance le programme)
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -24,6 +25,7 @@ public class Compte
 		numero = ""+numm+"";
 		solde = sol;
 		dateCreation = LocalDate.now();
+		proprietaire = proprio;
 	}
 	
 	// Constructeur par défaut
@@ -77,5 +79,10 @@ public class Compte
 	{
 		return this.dateCreation;
 	}
+	public Personne getProprio()
+	{
+		return this.proprietaire;
+	}
+	
 	
 }
